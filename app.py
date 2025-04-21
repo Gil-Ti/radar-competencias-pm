@@ -137,4 +137,3 @@ if st.button("Gerar Radar"):
     ax.axis('off')
     plt.tight_layout()
     st.pyplot(fig)
-'
