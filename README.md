@@ -40,8 +40,8 @@ Para transformar esse conhecimento em prática, desenvolvi esse radar interativo
 
 Este radar foi inspirado no artigo:
 > “What’s Your Shape? A Product Manager’s Guide to Growing Yourself and Your Team”  
-> por Ravi Mehta – versão traduzida e adaptada pela PM3  
-> [Leia o artigo original](https://www.ravimehta.com/whats-your-shape)
+> por Ravi Mehta   
+> [Leia o artigo original](https://www.ravi-mehta.com/)
 
 ---
 
