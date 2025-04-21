@@ -1,4 +1,4 @@
-# Adaptado para Streamlit com seções por áreas
+# Adaptado para Streamlit com seções por áreas mantendo as 12 competências
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,24 +20,16 @@ competencias = [
 # Áreas e cores
 cores_areas = {
     "Execução": "#FDECEA",
-    "PrimeiroEspaco": "#FFFFFF",
     "Influenciando pessoas": "#F2E6F8",
-    "SegundoEspaco": "#FFFFFF",
-    "Estratégia de Produto":"#E6F4EC",
-    "TerceiroEspaco": "#FFFFFF",
-    "Insights sobre usuário":"#FFF9E5", 
-    "QuartoEspaco": "#FFFFFF"
+    "Estratégia de Produto": "#E6F4EC",
+    "Insights sobre usuário": "#FFF9E5"
 }
 
 areas = {
-    "Insights sobre usuário": [0, 1],
-    "PrimeiroEspaco": [2],
-    "Execução": [3, 4],
-    "SegundoEspaco": [5],
-    "Influenciando pessoas": [6, 7],
-    "TerceiroEspaco": [8],
-    "Estratégia de Produto": [9, 10],
-    "QuartoEspaco": [11]
+    "Insights sobre usuário": [0, 1, 2],
+    "Execução": [3, 4, 5],
+    "Influenciando pessoas": [6, 7, 8],
+    "Estratégia de Produto": [9, 10, 11]
 }
 
 ponto_cores = ['#F1C40F']*3 + ['#E74C3C']*3 + ['#8E44AD']*3 + ['#1ABC9C']*3
@@ -52,8 +44,6 @@ nome_usuario = st.text_input("Seu nome")
 # Inputs organizados por áreas
 pontuacoes = []
 for nome_area, indices in areas.items():
-    if "Espaco" in nome_area:
-        continue
     st.subheader(f"📌 {nome_area}")
     for i in indices:
         val = st.slider(competencias[i], 0, 10, 5, key=f"slider_{i}")
