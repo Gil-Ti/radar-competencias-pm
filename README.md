@@ -20,7 +20,7 @@ Para transformar esse conhecimento em prática, desenvolvi esse radar interativo
 ## ▶️ Acesse o Colab
 
 > Abra e execute o radar no Google Colab:  
-[![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gileardteixeira/radar-competencias-pm/blob/main/radar_competencias_pm.ipynb
+[![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14ve-6Wl-coxEY3EUvmoXO07RrE5D3ulo?usp=sharing
 )
 
 ---
