@@ -1,31 +1,28 @@
-# Adaptado para Streamlit
+# Adaptado para Streamlit com seções por áreas
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from datetime import datetime
 
-# Data atual
 hoje_formatado = datetime.now().strftime("%d/%m/%Y")
 
-# Competências
 competencias = [
-    "Design e Experiência do usuário","Voice of the Customer", "Fluência em dados",
+    "Design e Experiência do usuário", "Voice of the Customer", "Fluência em dados",
     "Quality Assurance (QA)", "Product Delivery", "Especificação de features",
     "Managing Up", "Liderança de equipes", "Gerenciamento de stakeholders",
     "Impacto estratégico", "Visão de produto e construção de roadmap",
-    "Ownership dos resultados de negócio", 
+    "Ownership dos resultados de negócio"
 ]
 
-# Áreas e cores
 cores_areas = {
     "Execução": "#FDECEA",
     "PrimeiroEspaco": "#FFFFFF",
     "Influenciando pessoas": "#F2E6F8",
     "SegundoEspaco": "#FFFFFF",
-    "Estratégia de Produto":"#E6F4EC",
+    "Estratégia de Produto": "#E6F4EC",
     "TerceiroEspaco": "#FFFFFF",
-    "Insights sobre usuário":"#FFF9E5", 
+    "Insights sobre usuário": "#FFF9E5",
     "QuartoEspaco": "#FFFFFF"
 }
 
@@ -42,20 +39,22 @@ areas = {
 
 ponto_cores = ['#F1C40F']*3 + ['#E74C3C']*3 + ['#8E44AD']*3 + ['#1ABC9C']*3
 
-# Título
 st.title("📊 Radar de Competências para PMs")
 st.write("Avalie de 0 a 10 cada uma das 12 competências listadas abaixo e gere seu gráfico de autoconhecimento.")
 
-# Nome do usuário
 nome_usuario = st.text_input("Seu nome")
 
-# Inputs das competências
 pontuacoes = []
-for i, comp in enumerate(competencias):
-    val = st.slider(comp, 0, 10, 5)
-    pontuacoes.append(val)
+st.markdown("---")
+for nome_area, indices in areas.items():
+    if "Espaco" in nome_area:
+        continue
+    st.subheader(f"📌 {nome_area}")
+    for i in indices:
+        val = st.slider(competencias[i], 0, 10, 5)
+        pontuacoes.append(val)
+st.markdown("---")
 
-# Botão
 if st.button("Gerar Radar"):
     N = len(pontuacoes)
     angles = np.linspace(0, 2 * np.pi, N, endpoint=False) + np.pi / 12
