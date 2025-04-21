@@ -1,4 +1,4 @@
-# Adaptado para Streamlit com seções por áreas mantendo as 12 competências
+# Adaptado para Streamlit com seções por áreas mantendo espaços visuais
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,19 +17,27 @@ competencias = [
     "Ownership dos resultados de negócio", 
 ]
 
-# Áreas e cores
+# Áreas e cores (incluindo espaços em branco para separação visual)
 cores_areas = {
     "Execução": "#FDECEA",
+    "PrimeiroEspaco": "#FFFFFF",
     "Influenciando pessoas": "#F2E6F8",
+    "SegundoEspaco": "#FFFFFF",
     "Estratégia de Produto": "#E6F4EC",
-    "Insights sobre usuário": "#FFF9E5"
+    "TerceiroEspaco": "#FFFFFF",
+    "Insights sobre usuário": "#FFF9E5",
+    "QuartoEspaco": "#FFFFFF"
 }
 
 areas = {
-    "Insights sobre usuário": [0, 1, 2],
-    "Execução": [3, 4, 5],
-    "Influenciando pessoas": [6, 7, 8],
-    "Estratégia de Produto": [9, 10, 11]
+    "Insights sobre usuário": [0, 1],
+    "PrimeiroEspaco": [2],
+    "Execução": [3, 4],
+    "SegundoEspaco": [5],
+    "Influenciando pessoas": [6, 7],
+    "TerceiroEspaco": [8],
+    "Estratégia de Produto": [9, 10],
+    "QuartoEspaco": [11]
 }
 
 ponto_cores = ['#F1C40F']*3 + ['#E74C3C']*3 + ['#8E44AD']*3 + ['#1ABC9C']*3
@@ -41,10 +49,11 @@ st.write("Avalie de 0 a 10 cada uma das 12 competências listadas abaixo e gere 
 # Nome do usuário
 nome_usuario = st.text_input("Seu nome")
 
-# Inputs organizados por áreas
+# Inputs organizados por áreas e espaços
 pontuacoes = []
 for nome_area, indices in areas.items():
-    st.subheader(f"📌 {nome_area}")
+    if "Espaco" not in nome_area:
+        st.subheader(f"📌 {nome_area}")
     for i in indices:
         val = st.slider(competencias[i], 0, 10, 5, key=f"slider_{i}")
         pontuacoes.append(val)
